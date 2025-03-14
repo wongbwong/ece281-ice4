@@ -70,9 +70,18 @@ end top_basys3;
 architecture top_basys3_arch of top_basys3 is 
 
 --Declare stoplight component here 
+component stoplight_fsm is
+    Port ( i_C     : in  STD_LOGIC;
+           i_reset : in  STD_LOGIC;
+           i_clk   : in  STD_LOGIC;
+           o_R     : out  STD_LOGIC;
+           o_Y     : out  STD_LOGIC;
+           o_G     : out  STD_LOGIC
+    );
+    end component;
 
-
-component clock_divider is
+component clock_divider is?
+"
 	generic ( constant k_DIV : natural := 2	);
 	port ( 	i_clk    : in std_logic;		   -- basys3 clk
 			i_reset  : in std_logic;		   -- asynchronous
